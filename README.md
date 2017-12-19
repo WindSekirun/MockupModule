@@ -27,6 +27,40 @@ dependencies {
 3. implement all abstract member
 4. That's it!
 
+#### Documents
+```Kotlin
+/**
+ * count of images
+ *
+ * @return size of image files
+ */
+protected abstract val numberOfItems: Int
+
+/**
+ * length of name of file exclude extensions
+ *
+ * example, if name of file is '003.png', it will be 3
+ * @return length of filename
+ */
+protected abstract val filenameLength: Int
+
+/**
+ * name of extensions
+ *
+ * Constants.EXTENSION_JPG, EXTENSION_PNG, EXTENSION_WEBP or ".jpeg"
+ * @return name of extensions
+ */
+protected abstract val extension: String
+
+/**
+ * name of folder which have images to show
+ *
+ * Constants.EMPTH_PATH or "folder/"
+ * @return name of folder
+ */
+protected abstract val path: String
+```
+
 #### Kotlin
 ```Kotlin
 class KotlinActivity : MockupActivity() {
