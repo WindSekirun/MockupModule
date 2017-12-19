@@ -1,4 +1,8 @@
-## MockupModule 
+## MockupModule [![CircleCI](https://circleci.com/gh/WindSekirun/MockupModule.svg?style=svg)](https://circleci.com/gh/WindSekirun/MockupModule)  [![](https://jitpack.io/v/WindSekirun/MockupModule.svg)](https://jitpack.io/#WindSekirun/MockupModule)
+
+[![Kotlin](https://img.shields.io/badge/kotlin-1.2.0-blue.svg)](http://kotlinlang.org)	[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+
+Easy-to-integrate MockupModule for Android, written in [Kotlin](http://kotlinlang.org) 
 
 ### Usages
 *rootProject/build.gradle*
@@ -13,11 +17,57 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation ''
+    implementation 'com.github.WindSekirun:MockupModule:1.0.0'
 }
 ```
 
 ### Usages
+1. put your images to assets (it support subdirectory)
+2. making new Activity, with inherit ```MockupActivity```
+3. implement all abstract member
+4. That's it!
+
+#### Kotlin
+```Kotlin
+class KotlinActivity : MockupActivity() {
+    override val numberOfItems: Int
+        get() = 9
+    override val filenameLength: Int
+        get() = 3
+    override val extension: String
+        get() = Constants.EXTENSION_JPG
+    override val path: String
+        get() = Constants.EMPTY_PATH
+}
+```
+
+#### Java
+```Java
+public class MainActivity extends MockupActivity {
+
+    @Override
+    protected int getNumberOfItems() {
+        return 9;
+    }
+
+    @Override
+    protected int getFilenameLength() {
+        return 3;
+    }
+
+    @NotNull
+    @Override
+    protected String getExtension() {
+        return Constants.EXTENSION_JPG;
+    }
+
+    @NotNull
+    @Override
+    protected String getPath() {
+        return Constants.EMPTY_PATH;
+    }
+}
+```
 
 
 ### License 
