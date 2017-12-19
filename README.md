@@ -32,7 +32,7 @@ dependencies {
 /**
  * count of images
  *
- * @return size of image files
+ * @return count of image files
  */
 protected abstract val numberOfItems: Int
 
