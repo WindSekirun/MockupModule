@@ -59,6 +59,14 @@ protected abstract val extension: String
  * @return name of folder
  */
 protected abstract val path: String
+
+/**
+ * flag when mockupActivity require FullScreen
+ *
+ * @return flag
+ */
+protected abstract val requireFullscreen: Boolean
+    
 ```
 
 #### Kotlin
@@ -72,6 +80,9 @@ class KotlinActivity : MockupActivity() {
         get() = Constants.EXTENSION_JPG
     override val path: String
         get() = Constants.EMPTY_PATH
+    override val requireFullscreen: Boolean
+        get() = true
+        
 }
 ```
 
@@ -99,6 +110,11 @@ public class MainActivity extends MockupActivity {
     @Override
     protected String getPath() {
         return Constants.EMPTY_PATH;
+    }
+    
+    @Override
+    protected boolean getRequireFullscreen() {
+        return false;
     }
 }
 ```

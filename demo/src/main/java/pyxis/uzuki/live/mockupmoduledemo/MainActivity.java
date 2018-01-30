@@ -28,4 +28,9 @@ public class MainActivity extends MockupActivity {
     protected String getPath() {
         return Constants.EMPTY_PATH;
     }
+
+    @Override
+    protected boolean getRequireFullscreen() {
+        return false;
+    }
 }
