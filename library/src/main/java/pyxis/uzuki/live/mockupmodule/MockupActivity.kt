@@ -48,6 +48,15 @@ abstract class MockupActivity : AppCompatActivity() {
      */
     protected abstract val requireFullscreen: Boolean
 
+    /**
+     * additional index value when open page
+     *
+     * ex) page start from 001, override this methods and set return value as 1
+     *
+     * @return Int
+     */
+    open fun getIndexThreshold(): Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.MockupTheme)
@@ -69,7 +78,7 @@ abstract class MockupActivity : AppCompatActivity() {
         }
 
         override fun getItem(position: Int): Fragment {
-            return MockupFragment.newInstance(position, filenameLength, extension, path)
+            return MockupFragment.newInstance(position + getIndexThreshold(), filenameLength, extension, path)
         }
     }
 }
